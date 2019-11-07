@@ -18,6 +18,23 @@ class ViewController: UIViewController {
     // MARK: Device
     let DEVICE_ID = "22003f000f47363333343437"
     var myPhoton : ParticleDevice?
+    var counter = 0
+    var timer = Timer()
+    
+    @IBOutlet weak var label: UILabel!
+
+    
+    @IBAction func Start(_ sender: UIButton) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.timerAction), userInfo: nil, repeats: true)
+    
+    }
+    
+    @objc func timerAction() {
+          counter += 1
+          label.text = "\(counter)"
+    }
+      
     
     override func viewDidLoad() {
         super.viewDidLoad()
